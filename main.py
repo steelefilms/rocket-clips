@@ -5,7 +5,25 @@ from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import HTMLResponse
 
 app = FastAPI()
+@app.get("/debug")
+def debug():
+    import shutil
+    import subprocess
+    ffmpeg_path = shutil.which("ffmpeg")
+    ffprobe_path = shutil.which("ffprobe")
+    
+    # Try running ffmpeg directly
+    try:
+        result = subprocess.run(["ffmpeg", "-version"], capture_output=True, text=True)
+        ffmpeg_version = result.stdout.split("\n")[0]
+    except Exception as e:
+        ffmpeg_version = str(e)
 
+    return {
+        "ffmpeg_path": ffmpeg_path,
+        "ffprobe_path": ffprobe_path,
+        "ffmpeg_version": ffmpeg_version,
+    }
 UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
