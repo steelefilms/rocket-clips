@@ -1,2 +1,2 @@
-[phases.setup]
-nixPkgs = ["ffmpeg", "ffmpeg-full"]
+[phases.install]
+cmds = ["apt-get update && apt-get install -y ffmpeg"]
