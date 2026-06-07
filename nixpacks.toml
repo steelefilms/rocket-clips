@@ -1,5 +1,5 @@
 [phases.setup]
-nixPkgs = ["ffmpeg"]
+cmds = ["bash setup.sh"]
 
 [start]
 cmd = "python -m uvicorn main:app --host 0.0.0.0 --port $PORT"
