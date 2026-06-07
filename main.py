@@ -14,8 +14,7 @@ def probe_video(filepath: str) -> dict:
     for track in media_info.tracks:
         if track.track_type == "Video":
             duration = round(float(track.duration or 0) / 1000, 2)
-            fps_raw = track.frame_rate or "30"
-            fps = round(float(fps_raw), 2)
+            fps = round(float(track.frame_rate or 30), 2)
             return {
                 "duration_seconds": duration,
                 "width": int(track.width or 0),
@@ -40,7 +39,7 @@ def home():
           body {
             font-family: sans-serif;
             background: #0f0f0f;
-            color: #ffffff;
+            color: #fff;
             display: flex;
             flex-direction: column;
             align-items: center;
