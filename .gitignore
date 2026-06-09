@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+uploads/
+clips/
+rocketclips.db
+emails.txt
+.env
+*.egg-info/
+.DS_Store
