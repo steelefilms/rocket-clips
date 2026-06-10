@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: rocket-clips
+    env: docker
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
